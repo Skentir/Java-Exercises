@@ -12,9 +12,9 @@ public class Homework1 {
     System.out.println();
 
     if (gender == 'F' || gender == 'f') {
-      System.out.println("Hi, Ms Nats. This is "+name+". She is "+age+" years old.");
+      System.out.println("Hi, Ms Nats. This is "+ name + ". She is "+ age +" years old.");
     } else if (gender == 'M' || gender == 'm') {
-      System.out.println("Hi, Ms Nats. This is "+name+". He is "+age+" years old.");
+      System.out.println("Hi, Ms Nats. This is "+ name + ". He is "+ age +" years old.");
     } else
       System.out.println("Unknown Gender.");
   }
