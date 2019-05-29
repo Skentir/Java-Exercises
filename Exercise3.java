@@ -1,5 +1,4 @@
 import java.util.*;
-import static java.lang.Math.*;
 
 public class Exercise3 {
   public static void main(String[] args){
@@ -15,8 +14,8 @@ public class Exercise3 {
 
     System.out.println("Results are: ");
 
-    double Posresult = (-b + sqrt(b*b - 4*a*c))/(2*a);
-    double Negresult = (-b - sqrt(b*b - 4*a*c))/(2*a);
+    double Posresult = (-b + Math.sqrt(b*b - 4*a*c))/(2*a);
+    double Negresult = (-b - Math.sqrt(b*b - 4*a*c))/(2*a);
 
     System.out.println("\t"+Posresult+" and");
     System.out.println("\t"+Negresult);
