@@ -28,12 +28,11 @@ public class Homework2 {
       double t_cost = user_input.nextDouble();
 
       double savings = (allowance/5 - t_cost) * 0.05;
-      double food = (allowance - t_cost * 5 - Math.ceil(savings) * 5)/5.0 * 0.75;
-      double phone = food * (1.333) * 0.25;
+      double spending = (allowance - t_cost * 5 - Math.ceil(savings) * 5)/5.0;
 
       System.out.printf("\nYour Daily Savings is\t\t\t Php %.3f\n", Math.ceil(savings));
-      System.out.printf("Suggested Spending on Food is\t\t Php %.3f\n", food);
-      System.out.printf("Sugges Spending on Cellphone Load is\t Php %.3f\n", phone);
+      System.out.printf("Suggested Spending on Food is\t\t Php %.3f\n", spending * 0.75);
+      System.out.printf("Sugges Spending on Cellphone Load is\t Php %.3f\n", spending * 0.25);
       System.out.println("Output Generated at " + fDate.format(currDate));
 
       System.out.print("\nNew Computation? ");
