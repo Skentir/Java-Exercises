@@ -10,7 +10,7 @@ public class Exercise4 {
     	
     	// Populate the array
     	System.out.println("Enter in the format <lastName>, <firstName>, <initial>: ");
-    	for (int i = 0; i < directory.length-1 i++) 
+    	for (int i = 0; i < directory.length; i++) 
     		directory[i] = user_input.nextLine();
     		
     	// Sort the array
