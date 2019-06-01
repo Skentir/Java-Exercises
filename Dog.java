@@ -5,7 +5,7 @@ public class Dog {
   private String name;
   private int age;
   private String gender;
-//  private final String gender;
+  
   // Constructor
   public Dog(String name, int age, String gender) {
     setName(name);
