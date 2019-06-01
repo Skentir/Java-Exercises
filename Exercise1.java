@@ -4,9 +4,9 @@ class Exercise1 {
   public static void main (String[] args) {
       int i;
       System.out.println("Using for loop: ");
-      for (i= 1; i <= 5; i++) {
+      for (i= 1; i <= 5; i++)
         System.out.print("Animo!");
-      }
+
       System.out.println("\nUsing do-while: ");
       do {
         System.out.print("Animo!");
