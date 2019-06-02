@@ -4,31 +4,31 @@ public class Dog {
   // Attributes
   private String name;
   private int age;
-  private String gender;
+  private final String gender;
 
   // Constructor
-  public Dog(String name, int age, String gender) {
+  public Dog(String name, int age) {
     this.name = name;
     this.age = age;
-    this.gender = gender;
+    this.gender = "male";
   }
   // Methods
-  public void setName(String new_name) {
-    name = new_name;
-  }
   public String getName() {
     return name;
   }
-  public void setGender(String new_gender) {
-    gender = new_gender;
+  public int getAge() {
+    return age;
   }
   public String getGender() {
     return gender;
   }
+  public void setName(String new_name) {
+    name = new_name;
+  }
   public void setAge(int new_age) {
     age = new_age;
   }
-  public int getAge() {
-    return age;
+  public void bark() {
+    System.out.println("Arf! Arf! Arf!");
   }
 }

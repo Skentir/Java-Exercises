@@ -10,6 +10,7 @@ public class DogTest2 {
       dog_list[i].setAge(dog_list[i].getAge()+1);
       i++;
     }
+    System.out.println();
   }
 
   public static void Display(Dog dog_list[]) {
@@ -21,6 +22,21 @@ public class DogTest2 {
       System.out.println("Gender: " + dog_list[i].getGender());
       i++;
     }
+    System.out.println();
+  }
+
+  public static void Akita(Dog dog_list[]) {
+      /* Change last dog's name to Akita */
+    Dog last_dog = dog_list[dog_list.length-1];
+    System.out.print(last_dog.getName()+" said ");
+    last_dog.bark();
+    System.out.println("Pet Owner said I'll call you My Akita.");
+    last_dog.setName("My Akita");
+    System.out.print(last_dog.getName()+" said ");
+    last_dog.bark();
+    System.out.println();
+    System.out.println("New data of dogs:");
+    Display(dog_list);
   }
 
   public static void main(String args[]) {
@@ -37,18 +53,15 @@ public class DogTest2 {
       System.out.print("Age: ");
       age = user_input.nextInt();
       user_input.nextLine();
-      System.out.print("Gender: ");
-      gender = user_input.nextLine();
       /* Set name and age of Dog */
-      dog_list[i] = new Dog(name, age, gender);
+      dog_list[i] = new Dog(name, age);
       i++;
     }
-    System.out.println("You entered the ff:");
+
+    System.out.println("\nYou entered the ff:");
     Display(dog_list);
-    System.out.println();
     Increase(dog_list);
-    System.out.println("New data of dogs:");
-    Display(dog_list);
+    Akita(dog_list);
   }
 
 }
