@@ -5,12 +5,12 @@ public class Dog {
   private String name;
   private int age;
   private String gender;
-  
+
   // Constructor
   public Dog(String name, int age, String gender) {
-    setName(name);
+    this.name = name;
     this.age = age;
-    setGender(gender);
+    this.gender = gender;
   }
   // Methods
   public void setName(String new_name) {
