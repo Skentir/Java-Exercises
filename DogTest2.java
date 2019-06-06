@@ -3,13 +3,9 @@ import java.util.*;
 public class DogTest2 {
 
   public static void Increase(Dog dog_list[]) {
-      /* Increase Age of Dogs */
-    int i = 0;
-    while (dog_list.length > i) {
-      System.out.printf("Increasing Age of Dog %d ...\n", i+1);
-      dog_list[i].setAge(dog_list[i].getAge()+1);
-      i++;
-    }
+      /* Increase Age of Dog 1 */
+      System.out.printf("Increasing Age of Dog 1 ...\n");
+      dog_list[0].setAge(dog_list[0].getAge()+1);
     System.out.println();
   }
 
