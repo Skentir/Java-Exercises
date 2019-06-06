@@ -12,6 +12,16 @@ public class Dog {
     this.age = age;
     this.gender = "male";
   }
+
+  public Dog(String name, String gender) {
+    setName(name);
+    this.gender = gender;
+  }
+  public Dog(String name, int age, String gender) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+  }
   // Methods
   public String getName() {
     return name;

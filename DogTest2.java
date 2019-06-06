@@ -52,9 +52,13 @@ public class DogTest2 {
       name = user_input.nextLine();
       System.out.print("Age: ");
       age = user_input.nextInt();
-      user_input.nextLine();
-      /* Set name and age of Dog */
       dog_list[i] = new Dog(name, age);
+      user_input.nextLine();
+      System.out.print("Gender: ");
+      gender = user_input.nextLine();
+      dog_list[i] = new Dog(name, gender);
+      /* Set name and age of Dog */
+      dog_list[i] = new Dog(name, age, gender);
       i++;
     }
 
