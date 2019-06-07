@@ -63,6 +63,9 @@ public class DogTest2 {
     d2.Display(dog_list);
     d2.Increase(dog_list);
     d2.Akita(dog_list);
+    user_input.close();
+    dog_list[0] = null;
+    System.gc();
   }
 
 }
