@@ -2,14 +2,14 @@ import java.util.*;
 
 public class DogTest2 {
 
-  public static void Increase(Dog dog_list[]) {
+  public void Increase(Dog dog_list[]) {
       /* Increase Age of Dog 1 */
       System.out.printf("Increasing Age of Dog 1 ...\n");
       dog_list[0].setAge(dog_list[0].getAge()+1);
     System.out.println();
   }
 
-  public static void Display(Dog dog_list[]) {
+  public void Display(Dog dog_list[]) {
     /* Display Dog Array */
     int i = 0;
     while (dog_list.length > i) {
@@ -21,7 +21,7 @@ public class DogTest2 {
     System.out.println();
   }
 
-  public static void Akita(Dog dog_list[]) {
+  public void Akita(Dog dog_list[]) {
       /* Change last dog's name to Akita */
     Dog last_dog = dog_list[dog_list.length-1];
     System.out.print(last_dog.getName()+" said ");
@@ -58,10 +58,11 @@ public class DogTest2 {
       i++;
     }
 
+    DogTest2 d2 = new DogTest2();
     System.out.println("\nYou entered the ff:");
-    Display(dog_list);
-    Increase(dog_list);
-    Akita(dog_list);
+    d2.Display(dog_list);
+    d2.Increase(dog_list);
+    d2.Akita(dog_list);
   }
 
 }
