@@ -19,11 +19,13 @@ public class Sanitizer {
   }
 
   setCurr(double amount) {
-    currAmount = amount;
+    if (amount < 0.0)
+      currAmount = setMax(amount);
   }
 
-  setMax(double max) {
-    maxAmount = max;
+  public setMax(double max) {
+    if (max < 0.0)
+      maxAmount = 10.0;
   }
 
 }
