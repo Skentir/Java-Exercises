@@ -4,11 +4,11 @@ public class Exercise5
 {
 
   public void Display(Map directory) {
-    Set keys = new HashSet<int>();
+    Set keys = new HashSet();
     keys = directory.keySet();
-    for(int i : keys) {
-      System.out.println(i);
-    }
+    //for(int i : keys) {
+    //  System.out.println(i);
+    //}
   }
 
   public static void main(String[] args)

@@ -1,16 +1,11 @@
 public class Contact {
-  private int number;
+
   private String name;
   private String country;
 
-  public Contact(int number, String name, String country) {
-    setNumber(number);
+  public Contact( String name, String country) {
     setName(name);
     setCountry(country);
-  }
-
-  public void setNumber(int number) {
-    this.number = number;
   }
 
   public void setName(String name) {
@@ -19,11 +14,6 @@ public class Contact {
 
   public void setCountry(String country) {
     this.country = country;
-  }
-
-  public String getNumber()
-  {
-    return number;
   }
 
   public String getName()
