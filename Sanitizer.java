@@ -90,19 +90,20 @@ public class Sanitizer {
 
       @return String concatenation of id, current amount, and maximum amount
   */
-  public String getStatus() {
+  public String toString() {
     return id + ":" + getCurr() + "/" + getMax();
   }
   /** This method deducts 1% of the current amount of the sanitizer and returns it.
 
-      @return 99% of current amount of sanitizer
+      @return 1% of current amount of sanitizer
   */
   public double dispense() {
-    double new_amount = currAmount * 0.01;
+    double new_amount = maxAmount * 0.01;
     if (currAmount > new_amount) {
       currAmount -= new_amount;
       return new_amount;
     } else
-      return currAmount; //dispense the remaining
+      return newAmount; //dispense the remaining
+  }
 
 }
