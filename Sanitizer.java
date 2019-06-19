@@ -99,8 +99,13 @@ public class Sanitizer {
   */
   public double dispense() {
     double new_amount = currAmount * 0.01;
-    currAmount -= new_amount;
-    return new_amount;
+    if currAmount > new_amount {
+      currAmount -= new_amount;
+      return new_amount;
+    } else {
+      return currAmount; //dispense the remaining
+      currAmount = 0; // set it to zero
+    }
   }
 
 }
