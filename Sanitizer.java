@@ -102,10 +102,7 @@ public class Sanitizer {
     if currAmount > new_amount {
       currAmount -= new_amount;
       return new_amount;
-    } else {
+    } else
       return currAmount; //dispense the remaining
-      currAmount = 0; // set it to zero
-    }
-  }
 
 }
