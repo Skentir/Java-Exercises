@@ -98,8 +98,9 @@ public class Sanitizer {
       @return 99% of current amount of sanitizer
   */
   public double dispense() {
-    currAmount *= currAmount * 0.99;
-    return currAmount;
+    double new_amount = currAmount * 0.01;
+    currAmount -= new_amount;
+    return new_amount;
   }
 
 }
