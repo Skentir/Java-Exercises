@@ -104,5 +104,5 @@ public class Sanitizer {
       return new_amount;
     } else
       return currAmount; //dispense the remaining
-
+  }
 }
