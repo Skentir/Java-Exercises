@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class MyGui extends JFrame
 /*
@@ -10,6 +11,7 @@ public class MyGui extends JFrame
    private JButton btnOk;
    private JButton btnCancel;
    private JTextField tfEntry;
+   private JTextArea taContent;
 
   public MyGui()
   {
@@ -34,11 +36,41 @@ public class MyGui extends JFrame
     * Border - 5 panels. Panels can have different layout.
     * Grid - Each "square" is of equal size
     */
-    JPanel pnlBase = new JPanel();
-    add(pnlBase, BorderLayout.NORTH);
-    pnlBase.setLayout(new BorderLayout());
 
-    add(lbTitle, BorderLayout.NORTH);
-    add(tfEntry, BorderLayout.SOUTH);
+    JPanel pnlBase = new JPanel();
+    setLayout(new BorderLayout());
+    /* NORTH PANEL */
+    add(pnlBase, BorderLayout.NORTH);
+    pnlBase.add(lbTitle);
+    tfEntry.setColumns(15);
+    pnlBase.add(tfEntry);
+    /* SOUTH PANEL*/
+    pnlBase = new JPanel();
+    add(pnlBase, BorderLayout.SOUTH);
+    pnlBase.add(btnOk);
+    pnlBase.add(btnCancel);
+    /* CENTER PANEL */
+    taContent = new JTextArea();
+    add(taContent, BorderLayout.CENTER);
+    /* Scroll Bar */
+    JScrollPane scrScroll = new JScrollPane();
+    add(scrScroll);
+
+  }
+
+  public void addListeners(ActionListener a)
+  {
+      btnOk.addActionListener(a); /* Can have multiple listerner per button*/
+      btnCancel.addActionListener(a); /* Can have multiple listerner per button*/
+  }
+
+  public String getTextContent()
+  {
+    return taContent.getText();
+  }
+
+  public void setTextContent(String c)
+  {
+    taContent.setText(c);
   }
 }
