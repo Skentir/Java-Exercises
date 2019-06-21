@@ -18,10 +18,7 @@ public class Sanitizer {
     @param max is a double value.
   */
   public Sanitizer (int id, double max) {
-    setID(id);
-    setCurr(max);
-    setMax(max);
-    this(id, currAmount, max);
+    this(id, max, max);
   }
   /** This constructor initializes all attributes
     of the dog object.
