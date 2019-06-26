@@ -13,6 +13,7 @@ public class MyGui extends JFrame
    private JTextField tfEntry;
    private JTextArea taContent;
    private ActionListener listener;
+
   public MyGui()
   {
     super("My First GUI"); /*super calls the JFrame package*/
