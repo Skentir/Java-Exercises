@@ -1,6 +1,6 @@
 import java.awt.event.*;
 
-public class MyController implements ActionListener
+public class MyController implements ActionListener // is a Listener
 /* ActionListener is an interface. We can implements multiple interfaces.
 * We have to code all of its methods.
 */
@@ -11,10 +11,14 @@ public class MyController implements ActionListener
   {
     gui = g;
     // ntb = n;
+    gui.addListeners(this); // Pass the controller
   }
 
   public void actionPerformed(ActionEvent e)
   {
-    gui.setTextContent("Button Pressed!");
+    if(e.getActionCommand().equals("Ok?"))
+      gui.setTextContent("OK Button Pressed!");
+    else if(e.getActionCommand().equals("Cancel!"))
+      gui.setTextContent("Cancel Button Pressed!");
   }
 }

@@ -12,7 +12,7 @@ public class MyGui extends JFrame
    private JButton btnCancel;
    private JTextField tfEntry;
    private JTextArea taContent;
-
+   private ActionListener listener;
   public MyGui()
   {
     super("My First GUI"); /*super calls the JFrame package*/
@@ -53,13 +53,15 @@ public class MyGui extends JFrame
     taContent = new JTextArea();
     add(taContent, BorderLayout.CENTER);
     /* Scroll Bar */
-    JScrollPane scrScroll = new JScrollPane();
-    add(scrScroll);
+    taContent = new JTextArea();
+    JScrollPane scrScroll = new JScrollPane(taContent);
+    add(scrScroll, BorderLayout.CENTER);
 
   }
 
   public void addListeners(ActionListener a)
   {
+      listener = a;
       btnOk.addActionListener(a); /* Can have multiple listerner per button*/
       btnCancel.addActionListener(a); /* Can have multiple listerner per button*/
   }
