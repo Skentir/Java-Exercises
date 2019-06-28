@@ -15,6 +15,6 @@ public class Person {
 
   public String showNationality()
   {
-    return name;
+    return nationality;
   }
 }

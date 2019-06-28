@@ -27,14 +27,33 @@ public class Dormitory {
 
   public void addToDorm(Person guest)
   {
-    int num;
-    for (num=0; num < roomList.length; num++)
+    int num = 0, lastnum; boolean running = true;
+
+    while (num < roomMax &&  running)
     {
-      if (roomList[num-1].isFull() && num != roomList.length)
-      {
+    // if no room exists make a new one
+      if (roomList[num] == null && num < roomMax) {
+        System.out.println("First if");
+        roomList[num] = new Room(num, guestMax);
+    //    System.out.println("Created a new room!");
         roomList[num].addToRoom(guest);
-      } else
-        roomList[num-1].addToRoom(guest);
+        System.out.println("No room yet! Created a new one.");
+        running = false;
+      }
+      else if (roomList[num].isFull() && num != roomMax-1)
+      {
+        // if room exists, check if full
+        System.out.println("Second if");
+        roomList[num+1] = new Room(num+1, guestMax); // if not, make next room
+        roomList[num+1].addToRoom(guest);
+        System.out.println("Room is full! Created a new one.");
+        running = false;
+      }
+      else { // if room exists and not full, add to the room
+        roomList[num].addToRoom(guest);
+        System.out.println("Assigned to an existing room");
+        running = false;
+      }
     }
   }
 
@@ -48,10 +67,18 @@ public class Dormitory {
       return guestMax;
     }
 
+    public void showGuests(int i)
+    {
+      if (roomList[i] != null) {
+        System.out.printf("Room %d\n", i+1);
+        roomList[i].showAssignedLodgers(roomList[i]);
+      }
+    }
+
     public int freeRooms()
     {
       int count = 0, i;
-      for (i=0; i < roomMax; i++)
+      for (i=0; i < roomMax && roomList[i] != null; i++)
       {
         if (roomList[i].isFull())
             count++;
@@ -62,6 +89,7 @@ public class Dormitory {
     @Override
     public String toString()
     {
-      return name+" - "+roomMax+" "+ freeRooms();
+
+      return name+" - Max Rooms: "+roomMax+" "+ "\nAvailable Room/s: " + freeRooms();
     }
 }
