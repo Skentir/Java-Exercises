@@ -1,9 +1,12 @@
-import java.util.*;
+
 import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.*;
+
 
 public class Dormitory {
   private String name;
-  private Room roomList = new ArrayList<Room>();
+  private Room[] roomList;
   private int roomMax;
   private int guestMax;
 
@@ -11,34 +14,29 @@ public class Dormitory {
   {
     this.name = name;
     this.roomMax = roomMax;
-    this.roomList = new ArrayList<Room>(roomMax);
+    this.roomList = new Room[roomMax];
     guestMax = 6;
   }
   public Dormitory (String name,int roomMax,int guestMax)
   {
     this.name = name;
     this.roomMax = roomMax;
-    this.roomList = new ArrayList<Room>(roomMax);
-    this.roomSize = roomSize;
+    this.roomList = new Room[roomMax];
+    this.guestMax = guestMax;
   }
 
   public void addToDorm(Person guest)
   {
-    Iterator i = roomList.iterator();
-    Room roomList = null;
-    int num = 1;
-    while (i.hasNext())
+    int num;
+    for (num=0; num < roomList.length; num++)
     {
-      if (roomList[i].isFull())
+      if (roomList[num-1].isFull() && num != roomList.length)
       {
-        roomList[i].add(new Room(num, guestMax));
-        num++;
-        roomList[i].addToRoom(guest);
-      }
-      else
-        roomList[i].addToRoom(guest);
-
+        roomList[num].addToRoom(guest);
+      } else
+        roomList[num-1].addToRoom(guest);
     }
+  }
 
     public int getRoomMax()
     {
@@ -52,16 +50,15 @@ public class Dormitory {
 
     public int freeRooms()
     {
-      Iterator i = roomList.iterator();
-      Room roomList = null;
-      int count = 0;
-      while (i.hasNext())
+      int count = 0, i;
+      for (i=0; i < roomMax; i++)
       {
         if (roomList[i].isFull())
             count++;
       }
       return roomMax - count;
     }
+
     @Override
     public String toString()
     {

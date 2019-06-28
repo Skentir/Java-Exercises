@@ -2,18 +2,18 @@ public class Person {
   private String name;
   private String nationality;
 
-  public Guest(String name, String nationality)
+  public Person(String name, String nationality)
   {
     this.name = name;
     this.nationality = nationality;
   }
 
-  public void showName()
+  public String showName()
   {
     return name;
   }
 
-  public void showNationality()
+  public String showNationality()
   {
     return name;
   }
