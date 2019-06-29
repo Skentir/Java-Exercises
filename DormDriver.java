@@ -90,8 +90,8 @@ public class DormDriver
 			he wants to be assigned to a currently unoccupied
 			room. */
       Person transferGuest = guests.get(3);
-      dorms.transfer(transferGuest, dorms[1]);
-      
+//      dorms.transfer(transferGuest, dorms[1]);
+
 		/* Provide code to transfer Michael to the same room
 		   as Miguel */
 
