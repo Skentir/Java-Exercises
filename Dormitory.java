@@ -29,34 +29,27 @@ public class Dormitory {
   {
     int num = 0, lastnum; boolean running = true;
 
-    while (num < roomMax &&  running)
-    {
-      // if no room exists make a new one
-      System.out.printf("num %d ", num);
-      if (roomList[num] == null && num < roomMax) {
-      System.out.println("Enter 1 ");
-        roomList[num] = new Room(num, guestMax);
-        roomList[num].addToRoom(guest);
-        running = false;
-      }
+      while (num < roomMax &&  running)
+      {
+        // if no room exists make a new one
+        if (roomList[num] == null && num < roomMax) {
+          roomList[num] = new Room(num, guestMax);
+          roomList[num].addToRoom(guest);
+          running = false;
+        }
+          // if room exists and previous guest left, add to the room
+        else if (roomList[num].headCount() == 0 && roomList != null)
+        {
+          roomList[num].addToRoom(guest);
+          running = false;
+        }
         // if room exists and not full, add to the room
-      else if (roomList[num] != null && !(roomList[num].isFull()))
-      {
-        System.out.println("Enter 2 ");
-        roomList[num].addToRoom(guest);
-        running = false;
-      }
-      // if room exists and full
-      else if (roomList[num].isFull() && num != roomMax-1)
-      {
-        System.out.println("Enter 3 ");
-        roomList[num+1] = new Room(num+1, guestMax); // if not, make next room
-        roomList[num+1].addToRoom(guest);
-        running = false;
-      }
-
-      else
-        num++;
+        else if (roomList[num] != null && !(roomList[num].isFull()) && !(name.equalsIgnoreCase("STC Dorm")))
+        {
+          roomList[num].addToRoom(guest);
+          running = false;
+        }
+          num++;
     }
   }
 
@@ -77,7 +70,7 @@ public class Dormitory {
 
     public void showGuests(int i)
     {
-      if (roomList[i] != null) {
+      if (roomList[i] != null && roomList[i].headCount() != 0) {
         System.out.printf("Room %d\n", roomList[i].showRoomNumber());
         roomList[i].showAssignedLodgers(roomList[i]);
       }

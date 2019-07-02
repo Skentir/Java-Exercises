@@ -61,14 +61,13 @@ public class DormDriver
 		   separate rooms. Provide your code.
 		*/
 
-    int j;
-    String country; Person guest;
+    int j; String country;
       for (j = 0; j < guests.size(); j++)
       {
         country = guests.get(j).showNationality();
         if (country.equalsIgnoreCase("Filipino"))
           dorms[0].addToDorm(guests.get(j));
-        else {
+        else
           dorms[1].addToDorm(guests.get(j));
       }
 
@@ -87,14 +86,18 @@ public class DormDriver
 		   as Miguel */
        dorms[1].transferRoom("Michael", "Miguel", dorms[0]);
 
+    /* Additional Test Case: New Guest will go to Michael's empty room.
+      Should not create a new room, but use old empty one.
+    */
+       guests.add(new Person("Yoda", "Alien"));
+       dorms[1].addToDorm(guests.get(guests.size()-1));
+
 		/* Provide your code to call displayDorms() in
 		   class DormDriver. */
        driver.displayDorms(dorms);
 
-
-
 		guests = null;
 		dorms = null;
 		System.gc();
-	}
+  }
 }

@@ -11,7 +11,7 @@ public class Room
   this.roomNumber = roomNumber+1;
   this.lodgerMax = lodgerMax;
   this.lodgers = new ArrayList<>();
-}
+  }
 
   public void addToRoom (Person guest)
   {
@@ -24,7 +24,12 @@ public class Room
       return false;
     else
       return true;
-}
+  }
+
+  public int headCount()
+  {
+    return lodgers.size();
+  }
 
   public int showRoomNumber ()
   {
