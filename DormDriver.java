@@ -12,7 +12,6 @@ public class DormDriver
 
 	public void displayDorms(Dormitory[] dorms)
 	{
-  //  System.out.println("Reached display Dorm");
     int i;
 		for (i = 0; i < dorms.length; i++)
 		{
@@ -30,7 +29,7 @@ public class DormDriver
 
 		   display(dorms[i]);
 		}
-    System.out.println("Reached end of display Dorm");
+    System.out.println();
 	}
 
 
@@ -51,8 +50,9 @@ public class DormDriver
 		guests.add(new Person("Victor", "Filipino"));
 		guests.add(new Person("Dennis", "Filipino"));
 		guests.add(new Person("Jaime", "Filipino"));
+    guests.add(new Person("Trisha", "Filipino"));
 
-		/* Have all Filipinos be in the same room, as
+    /* Have all Filipinos be in the same room, as
 		   long as they fit.  Following first come, first
 		   served, those who do not fit will be assigned
 		   to the next room. Use the first dormitory for
@@ -63,42 +63,33 @@ public class DormDriver
 
     int j;
     String country; Person guest;
-//    System.out.println("Reached Fil");
       for (j = 0; j < guests.size(); j++)
       {
-  //      System.out.println("Reached Loop");
-        country= guests.get(j).showNationality();
-      //  System.out.printf("Guest:%d %s \n", j+1, country);
-
-        if (country.equalsIgnoreCase("Filipino")) {
+        country = guests.get(j).showNationality();
+        if (country.equalsIgnoreCase("Filipino"))
           dorms[0].addToDorm(guests.get(j));
-        //  System.out.printf("Assigned to a Pinoy dorm! \n");
-        }
         else {
           dorms[1].addToDorm(guests.get(j));
-        //  System.out.printf("Assigned to foreigner's dorm! \n");
-        }
       }
 
 		/* Provide your code to call displayDorms() in
 		   class DormDriver. */
        DormDriver driver = new DormDriver();
-    //   System.out.println("Reached Out of Fil");
        driver.displayDorms(dorms);
 
 		/* Provide code to transfer Ray to STC Dorm, and
 			he wants to be assigned to a currently unoccupied
 			room. */
-      Person transferGuest = guests.get(3);
-//      dorms.transfer(transferGuest, dorms[1]);
+      dorms[0].transferDorm("Ray", dorms[1]);
+
 
 		/* Provide code to transfer Michael to the same room
 		   as Miguel */
-
-
+       dorms[1].transferRoom("Michael", "Miguel", dorms[0]);
 
 		/* Provide your code to call displayDorms() in
 		   class DormDriver. */
+       driver.displayDorms(dorms);
 
 
 
