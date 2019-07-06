@@ -1,6 +1,6 @@
 public class Person {
-  private String final name;
-  private String final nationality;
+  private final String name;
+  private final String nationality;
 
   /**
    * Constructs the {@code Person} class.
