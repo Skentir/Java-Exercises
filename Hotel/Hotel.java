@@ -25,13 +25,13 @@ public class Hotel {
     {
     	int i;
     	this.name = name;
-    //	if (roomMax <= 7 || roomMax >= 1)
-  //  	{
+    	if (roomMax <= 7 || roomMax >= 1)
+    	{
     		roomList = new Room[roomMax];
     		for (i = 1; i <= roomMax; i++)
     			roomList[i-1] = new Room(i);
-  //  	} else
-  //  		System.out.println("Invalid number");
+    	} else
+    		System.out.println("Invalid number");
     }
 
     public boolean acceptGuest(Guest person, int num)
