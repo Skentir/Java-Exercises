@@ -27,10 +27,4 @@ public class Guest {
     {
     	return nationality;
     }
-
-    @Override
-    public String toString()
-    {
-    	return name + " - " + nationality + "\n";
-    }
 }
