@@ -12,7 +12,7 @@ abstract public class Polygon extends Shape
   public double computePerimeter()
   {
     double per = 0;
-    for(int i; i < side.size(); i++)
+    for(int i = 0; i < side.size(); i++)
     {
       per += side.get(i);
     }
