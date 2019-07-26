@@ -28,8 +28,8 @@ public class LawFirm
       for(int i = 0; i < employees.size(); i++)
       {
         System.out.printf("%s\t", employees.get(i).getName());
-        System.out.printf("%f\t", employees.get(i).computeBaseSalary());
-        System.out.printf("%f\n", employees.get(i).computeTax());
+        System.out.printf("%f\t", employees.get(i).getSalary());
+        System.out.printf("%f\n", employees.get(i).getSalary() - employees.get(i).computeTax());
       }
     }
 }

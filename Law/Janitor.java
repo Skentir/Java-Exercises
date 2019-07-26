@@ -1,6 +1,7 @@
 public class Janitor extends Employee
 {
     private double hourlyRate;
+    private double hoursWorked;
 
     public Janitor(String name, double hourlyRate)
     {
@@ -8,8 +9,18 @@ public class Janitor extends Employee
         this.hourlyRate = hourlyRate;
     }
 
+    public double getHoursWorked()
+    {
+        return hoursWorked;
+    }
+
+    public void setHoursWorked(double hours)
+    {
+        hoursWorked = hours;
+    }
+
     @Override
-    protected double computeBaseSalary()
+    public double getSalary()
     {
         return hourlyRate * getHoursWorked();
     }

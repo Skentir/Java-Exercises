@@ -9,7 +9,7 @@ public class Accountant extends Employee
     }
 
     @Override
-    protected double computeBaseSalary()
+    public double getSalary()
     {
         return salary;
     }

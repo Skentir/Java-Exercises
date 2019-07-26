@@ -5,7 +5,7 @@ public class Driver
     public static void main(String[] args)
     {
         LawFirm firm = new LawFirm("My Law Firm");
-        private ArrayList<Employee> employee_list = new ArrayList<>();
+        ArrayList<Employee> employee_list = new ArrayList<>();
         employee_list.add(new Accountant("Kirsten", 2000.0));
         employee_list.add(new Accountant("Nathan", 1800.0));
         employee_list.add(new Lawyer("Nick", 3120.0));
