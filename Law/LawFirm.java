@@ -24,5 +24,12 @@ public class LawFirm
     public void createPayroll()
     {
         /* put the payroll generation code here */
+      System.out.println("Name\tSalary\tNet Salary");
+      for(int i = 0; i < employees.size(); i++)
+      {
+        System.out.printf("%s\t", employees.get(i).getName());
+        System.out.printf("%lf\t", employees.get(i).computeBaseSalary());
+        System.out.printf("%lf\n", employees.get(i).computeTax());
+      }
     }
 }
