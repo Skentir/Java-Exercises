@@ -8,7 +8,7 @@ public class Janitor extends Employee
     }
 
     @Override
-    public double getBaseSalary()
+    protected double computeBaseSalary()
     {
         return hourlyRate * getHoursWorked();
     }

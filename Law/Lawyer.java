@@ -8,7 +8,7 @@ public class Lawyer extends Employee
     }
 
     @Override
-    public double getBaseSalary()
+    protected double computeBaseSalary()
     {
         return hourlyFee * getHoursWorked();
     }
