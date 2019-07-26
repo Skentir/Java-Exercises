@@ -1,8 +1,19 @@
 public abstract class Employee
 {
-    protected Employee() { }
+    private final String name;
+
+    protected Employee(String name)
+    {
+        this.name = name;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
     public abstract double getSalary();
-    
+
     public double computeTax()
     {
       double salary = this.getSalary();

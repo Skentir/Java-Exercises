@@ -4,8 +4,8 @@ public class Driver
 {
     public static void main(String[] args)
     {
-        ArrayList<Employee> employees = new ArrayList<>();
+        LawFirm firm = new LawFirm("My Law Firm");
 
-
+        firm.hire(new Accountant("Kirsten", 20000.0));
     }
 }
