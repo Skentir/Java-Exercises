@@ -6,6 +6,13 @@ public class Driver
     {
         LawFirm firm = new LawFirm("My Law Firm");
 
-        firm.hire(new Accountant("Kirsten", 20000.0));
+        firm.hire(new Accountant("Kirsten", 2000.0));
+        firm.hire(new Accountant("Nathan", 1800.0));
+        firm.hire(new Lawyer("Nick", 3120.0));
+        firm.hire(new Janitor("Marc", 1500.0));
+        firm.createPayroll();
+        
+        firm.fire(new Janitor("Marc", 100.0));
+        firm.createPayroll();
     }
 }
