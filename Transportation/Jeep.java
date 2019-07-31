@@ -11,9 +11,9 @@ public class Jeep extends Vehicle
     public double computeFare(double kilometers)
     {
         double km = totalDistance - kilometers;
-        if ( km > 4)
-            return km + 28;
+        if (km > 4)
+            return 7 + (km - 4);
         else
-            return km * 7;
+            return 7;
     }
 }
