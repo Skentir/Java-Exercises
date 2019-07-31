@@ -16,12 +16,14 @@ public class Lawyer extends Employee
 
     public void setHoursWorked(double hours)
     {
+    //    System.out.println(hours);
         hoursWorked = hours;
     }
 
     @Override
     public double getSalary()
     {
+  //    System.out.println(getHoursWorked());
         return hourlyFee * getHoursWorked();
     }
 }

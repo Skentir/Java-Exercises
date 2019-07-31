@@ -14,6 +14,7 @@ public class Driver
         for (int i=0; i<employee_list.size(); i++)
           firm.hire(employee_list.get(i));
         firm.createPayroll();
+        
         ((Lawyer)employee_list.get(2)).setHoursWorked(70);
         ((Janitor)employee_list.get(3)).setHoursWorked(120);
 

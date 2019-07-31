@@ -18,6 +18,7 @@ public abstract class Employee
     {
       double salary = this.getSalary();
       double temp = salary - 3200;
+       System.out.println("salary " + salary + "\ttemp" + temp + "\n");
       if (temp > 0)
         return 0.05 * 3200 + 0.1 * temp;
       else
