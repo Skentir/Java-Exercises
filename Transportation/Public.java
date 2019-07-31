@@ -1,4 +1,4 @@
 public interface Public
 {
-    double computeFare(int startKm);
+    double computeFare(int kilometers);
 }

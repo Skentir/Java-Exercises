@@ -8,7 +8,7 @@ public class Bus extends Vehicle implements Public
     }
 
     @Override
-    public double computeFare(int startKm)
+    public double computeFare(int kilometers)
     {
         return 30.0;
     }
