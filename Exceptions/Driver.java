@@ -4,17 +4,16 @@ public class Driver
     {
         MyScanner scanner = new MyScanner();
 
+        String name = null, birthday = null, today = null;
+
         try
         {
-            String name = scanner.nextLine();
+            System.out.println("Enter name: ");
+            name = scanner.nextLine();
             System.out.println("Enter birthdate (mm-dd-yyyy): ");
-            String birthday = scanner.nextDate();
+            birthday = scanner.nextDate();
             System.out.println("Enter date today (mm-dd-yyyy): ");
-            String today = scanner.nextDate();
-
-            System.out.println("Name: " + name);
-            System.out.println("Birthday: " + birthday);
-            System.out.println("Today: " + today);
+            today = scanner.nextDate();
         }
         catch (DateFormatException e)
         {
@@ -22,6 +21,11 @@ public class Driver
         }
         finally
         {
+            System.out.println("Correct entries:");
+            System.out.println();
+            System.out.println("\tName: " + name);
+            System.out.println("\tBirthday: " + birthday);
+            System.out.println("\tToday: " + today);
             System.out.println("Done");
         }
     }
