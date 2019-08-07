@@ -1,5 +1,12 @@
 public class DateFormatException extends Exception
 {
-  super("invalid date input input");
-  public DateFormatException(String DateFormatException);
+    public DateFormatException()
+    {
+        super("invalid date input");
+    }
+
+    public DateFormatException(String message)
+    {
+        super(message);
+    }
 }
