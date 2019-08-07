@@ -8,11 +8,11 @@ public class Driver
 
         try
         {
-            System.out.println("Enter name: ");
+            System.out.print("Enter name: ");
             name = scanner.nextLine();
-            System.out.println("Enter birthdate (mm-dd-yyyy): ");
+            System.out.print("Enter birthdate (mm-dd-yyyy): ");
             birthday = scanner.nextDate();
-            System.out.println("Enter date today (mm-dd-yyyy): ");
+            System.out.print("Enter date today (mm-dd-yyyy): ");
             today = scanner.nextDate();
         }
         catch (DateFormatException e)
@@ -23,9 +23,12 @@ public class Driver
         {
             System.out.println("Correct entries:");
             System.out.println();
-            System.out.println("\tName: " + name);
-            System.out.println("\tBirthday: " + birthday);
-            System.out.println("\tToday: " + today);
+            if (name != null)
+                System.out.println("\tName: " + name);
+            if (birthday != null)
+                System.out.println("\tBirthday: " + birthday);
+            if (today != null)
+                System.out.println("\tToday: " + today);
             System.out.println("Done");
         }
     }
