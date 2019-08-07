@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class MyScanner {
   private Scanner sc;
   public MyScanner()
@@ -20,19 +22,21 @@ public class MyScanner {
     return sc.nextLine();
   }
 
-  public String nextDate()
+  public String nextDate() throws DateFormatException
   {
       String date  = sc.nextLine();
 
-      if (date.length() < 10 || date.length > 10)
-        throw new DateFormatException(date + " too short or too long.");
+      if (date.length() < 10)
+        throw new DateFormatException(date + " too short");
+      if (date.length() > 10)
+        throw new DateFormatException(date + " too long");
       else if (date.length() == 10)
       {
         for(int i = 0; i < date.length(); i++)
         {
           if (i != 2 && i != 5) {
             if (!Character.isDigit(date.charAt(i)))
-              throw new DateFormatException(date + " should only contain letters.");
+              throw new DateFormatException(date + " should only contain numbers.");
           }
         }
       }
