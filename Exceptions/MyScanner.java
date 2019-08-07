@@ -22,6 +22,11 @@ public class MyScanner {
     return sc.nextLine();
   }
 
+  public void close()
+  {
+      sc.close();
+  }
+
   public String nextDate() throws DateFormatException
   {
       String date  = sc.nextLine();
