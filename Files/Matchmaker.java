@@ -106,7 +106,7 @@ public class Matchmaker
     }
   }
 
-  private Person getPersonByName(String name)
+  public Person getPersonByName(String name)
   {
 
     String temp;
