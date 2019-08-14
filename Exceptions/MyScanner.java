@@ -26,6 +26,18 @@ public class MyScanner {
   {
       sc.close();
   }
+  public boolean isNumeric(String word)
+  {
+    for(int i = 0; i < word.length(); i++)
+    {
+      if (i != 2 && i != 5) {
+        if (!Character.isDigit(word.charAt(i)))
+          return true;
+      }
+    }
+    return false;
+  }
+
 
   public String nextDate() throws DateFormatException
   {
@@ -37,13 +49,8 @@ public class MyScanner {
         throw new DateFormatException(date + " too long");
       else if (date.length() == 10)
       {
-        for(int i = 0; i < date.length(); i++)
-        {
-          if (i != 2 && i != 5) {
-            if (!Character.isDigit(date.charAt(i)))
+          if (isNumeric(date))
               throw new DateFormatException(date + " should only contain numbers.");
-          }
-        }
       }
       else if (date.charAt(2) != '-' || date.charAt(5) != '-')
         throw new DateFormatException(date + " wrong position of hyphen.");

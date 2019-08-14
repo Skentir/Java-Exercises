@@ -1,0 +1,8 @@
+Jay male 18
+Andrew male 25
+Andrea female 35
+Felix male 40
+Juan male 30
+Maria female 25
+Happy female 25
+Luna female 30
