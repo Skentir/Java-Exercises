@@ -34,44 +34,9 @@ public class Matchmaker
       System.out.println(e.getMessage());
     }
   }
-  /* Ver 2 accepts a name of a person and returns the ArrayList of poss matches */
-  public ArrayList<Person> getPossMatchesVer2(String name)
-  {
-    ArrayList<Person> matches = new ArrayList<>();
-    Person p = getPersonByName(name);
-    try
-    {
-      FileInputStream match_file= new FileInputStream("possMatches.txt");
-      InputStreamReader match_in_DB = new InputStreamReader(match_file);
-      BufferedReader matchDB = new BufferedReader(match_in_DB);
-      String[] data; String k; Person a, b;
-      while ((k = matchDB.readLine()) != null)
-      {
-      //  System.out.println("match: " + p);
-        data = k.split(" ");
-        a = getPersonByName(data[0]);
-        b = getPersonByName(data[1]);
-    //    System.out.println(a.getName() + " " + b.getName());
-        if (a.getName().equalsIgnoreCase(p.getName()))
-            matches.add(b);
-        else if (b.getName().equalsIgnoreCase(p.getName()))
-            matches.add(a);
-      }
-      matchDB.close();
-      match_in_DB.close();
-      match_file.close();
-    }
-    catch (Exception e)
-    {
-      System.out.println(e.getMessage());
-    }
-    finally
-    {
-      return matches;
-    }
-  }
+
   /* Ver 1 returns the ArrayList of People with Matches */
-  public ArrayList<Person> getPossMatchesVer1()
+  public ArrayList<Person> getPossMatches()
   {
     ArrayList<Person> matches = new ArrayList<>();
     try
@@ -105,6 +70,7 @@ public class Matchmaker
       return matches;
     }
   }
+
 
   public Person getPersonByName(String name)
   {
@@ -147,6 +113,11 @@ public class Matchmaker
     {
       System.out.println(e.getMessage());
     }
+  }
+
+  public ArrayList<Person> getHumans()
+  {
+    return humansDB;
   }
 
 

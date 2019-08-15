@@ -7,35 +7,40 @@ public class FileDriver
     Scanner sc = new Scanner(System.in);
     Matchmaker dlsu_singles_to_pick = new Matchmaker();
     dlsu_singles_to_pick.genMatches();
-    ArrayList<Person> people_with_life = dlsu_singles_to_pick.getPossMatchesVer1();
-
-    System.out.println("People who have a chance of love: ");
-    for(Person p: people_with_life)
-      System.out.println(p.getName());
-
-    System.out.println("Andrew's sugarbabes: ");
-    ArrayList<Person> andrw_sugarbabes = dlsu_singles_to_pick.getPossMatchesVer2("Andrew");
-    String reply; Person babe, bachelor = dlsu_singles_to_pick.getPersonByName("Andrew");
-
-    for(Person p: andrw_sugarbabes)
-      System.out.println(p.getName());
-
-    System.out.println("Who will Andrew Marry?");
-    for(Person p: andrw_sugarbabes)
+    ArrayList<Person> matches = dlsu_singles_to_pick.getPossMatches();
+    String reply;
+    for(Person p: matches)
     {
-      if (bachelor.getSpouse() == null)
+      for (int j=0; j < matches.size(); j++)
       {
-        System.out.println("Andrew marry " + p.getName() + " ?");
-        do
+        if (p.getSpouse() == null && matches.get(j).getSpouse() == null &&
+            !p.getName().equalsIgnoreCase(matches.get(j).getName()) &&
+            p.getGender().equalsIgnoreCase("female") && !p.getGender().equalsIgnoreCase(matches.get(j).getGender()) &&
+            p.getAge() == matches.get(j).getAge())
         {
-          reply = sc.nextLine();
-        } while(!reply.equalsIgnoreCase("yes") && !reply.equalsIgnoreCase("no"));
+          System.out.println("Marry?");
+          System.out.println(p.getName() + " - " + matches.get(j).getName());
+          do
+          {
+            reply = sc.nextLine();
+          } while(!reply.equalsIgnoreCase("yes") && !reply.equalsIgnoreCase("no"));
 
-        if (reply.equalsIgnoreCase("yes"))
-          bachelor.marry(p);
+          if (reply.equalsIgnoreCase("yes")) {
+            p.marry(matches.get(j));
+          }
+        }
       }
     }
-    System.out.println(bachelor.toString());
+
+    System.out.println("Results: ");
+    ArrayList<Person> lasallians = dlsu_singles_to_pick.getHumans();
+    for(Person p: lasallians)
+    {
+      if (p.getSpouse() == null)
+        System.out.println(p.getName() + " is single.");
+      else
+        System.out.println(p.getName() + " is married to " + p.getSpouse().getName());
+    }
     sc.close();
   }
 }

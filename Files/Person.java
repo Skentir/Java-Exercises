@@ -9,25 +9,25 @@ public class Person
       if (g.equalsIgnoreCase("male") ||
 		      g.equalsIgnoreCase("female"))
 			gender = g;
-	  else 
+	  else
 	  {
-		  System.out.println(g + 
+		  System.out.println(g +
 		       " not a valid gender");
 		  gender = "male";
 	  }
    }
-   
+
    public Person getSpouse()
    {   return spouse;
    }
-   
+
    public String getName()
    {
 	   return name;
    }
-   
+
    public int getAge()
-   { 
+   {
            return age;
    }
 
@@ -40,27 +40,27 @@ public class Person
    public String toString()
    {
 	   if (spouse != null)
-		   return name + ", " +  age + ", is married to " + 
+		   return name + ", " +  age + ", is married to " +
 	              spouse.getName();
-	   else return name + ", " +  age + ", is not married ";	
+	   else return name + ", " +  age + ", is not married ";
    }
-   
+
    public String getGender()
    {
 	   return gender;
    }
-   
+
    public void marry(Person p)
    {
 	   if (spouse == null && p.getSpouse() == null &&
                p != this &&
 	       gender.equalsIgnoreCase(p.gender) == false)
-		      spouse = p;
+		      {spouse = p;p.spouse = this;}
 	   else System.out.println("Cannot marry");
    }
-   
+
    private final String name;
    private final String gender;
    private int age;
-   private Person spouse;   
+   private Person spouse;
 }
