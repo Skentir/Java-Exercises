@@ -36,10 +36,7 @@ public class FileDriver
     ArrayList<Person> lasallians = dlsu_singles_to_pick.getHumans();
     for(Person p: lasallians)
     {
-      if (p.getSpouse() == null)
-        System.out.println(p.getName() + " is single.");
-      else
-        System.out.println(p.getName() + " is married to " + p.getSpouse().getName());
+      System.out.println(p.toString());
     }
     sc.close();
   }
