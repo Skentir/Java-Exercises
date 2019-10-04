@@ -75,6 +75,23 @@ public class optimal {
   }
 }
 
+public static void countSwaps(int length, int[] carriageNumbers)
+{
+  int i,j,temp, count = 0;
+  for (i=1; i <= length; i++)
+  {
+    if (carriageNumbers[i-1] != i)
+    {
+       temp = carriageNumbers[i-1];
+       carriageNumbers[carriageNumbers[i-1]] = i;
+       i = carriageNumbers[i-1];
+       count++;
+    }
+    else
+      continue;
+  }
+}
+
   public static void main(String[] args)
   {
       String[] A = new String[]
@@ -100,6 +117,9 @@ public class optimal {
       "C 6 2",
       "D 2 7",};
       assignTable(C);
+
+      int[] D = {4,3,2,1};
+      countSwaps(4,D);
   }
 
 }

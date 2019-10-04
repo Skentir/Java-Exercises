@@ -1,11 +1,12 @@
 import java.util.*;
 import java.util.Map.Entry;
+
 public class exercise2
 {
 
   public static void analyze(String input)
   {
-    Map<Character, Integer> freq = new HashMap<Character,Integer>();
+    Map<Character, Integer> freq = new LinkedHashMap<Character,Integer>();
     char[] arr = input.toUpperCase().toCharArray();
 
     for (char c: arr)
@@ -24,79 +25,46 @@ public class exercise2
       }
     }
 
-        System.out.println(freq);
-    Character[] charactersFound = freq.keySet().toArray(new Character[0]);
+    System.out.println(freq);
+  }
 
-   System.out.println("Letters\tCount");
-   for(int k = 0; k < charactersFound.length; k++)
-   {
-       char character = charactersFound[k];
-       System.out.println(character+
-               "\t"+
-               //get the count for the character
-               freq.get(character));
-   }
+  public static void countSwaps(int length, int[] carriageNumbers)
+  {
+    /* Get a copy of sorted version 1 .. length */
+    int[] copy = carriageNumbers;
+    System.out.println("Copy");
+    for (int m: copy)
+      System.out.print(m+",");
+    System.out.println();
 
-  /*
-  for (Entry<Character, Integer> entry : freq.entrySet()) {
-      System.out.println(entry.getKey() + " : " + entry.getValue());*/
+    Arrays.sort(carriageNumbers);
+    System.out.println("Sorted");
+    int i,j,temp, count = 0;
+    for (int k: carriageNumbers)
+      System.out.print(k+",");
+    System.out.println();
 
-
-    /*
-    Character[] uniq = map.keySet().toArray(new Character[0]);
-
-    Collections.sort(ranking, new Comparator<Business>()
+    for (i=1; i <= length; i++)
     {
-              public int compare(Business i1, Business i2) {
-                    return i2.getRating() - i1.getRating();
-                }
-    }); */
-    /*
-    char[] uniq = new char[input.length()];
-    int[] count = new int[input.length()];
-
-    int i, m = 0;
-    for (char c:arr)
-    {
-          i = input.toUpperCase().indexOf(c);
-          count[i] = 0;
-
-          if (c != ' ' && Character.isLetter(c))
-          {
-            uniq[i] = c;
-            for (int k = i; k < input.length(); k++)
-            {
-              if (arr[k] == c)
-              {
-                arr[k] = ' ';
-                count[i]++;
-              }
-            }
-
-      //      System.out.println(uniq[i] + " "  + count[i]);
-          }
-    }
-
-    int high;
-    for (m ; m < input.length(); m++)
-    {
-      if (arr[m] != ' ' && Character.isLetter(arr[m]))
+  //    System.out.println(i + "," + length);
+      if (carriageNumbers[i-1] != i)
       {
-        for (i = m+1; i < input.length()-1; i++)
-        {
-          if(count[m] < count[i])
-            uniq[m] = arr[i];
-          else if (count[m] == count[i])
-        }
-
+  //      System.out.println("num " + carriageNumbers[i-1] + " , " + i);
+         temp = carriageNumbers[i-1];
+         carriageNumbers[i-1] = i;
+         carriageNumbers[carriageNumbers[i-1]-1] = temp;
+         count++;
       }
-    }
 
-    */
+    }
+      System.out.println("Count " + count);
 
   }
+
   public static void main(String args[])
   {
     analyze("Count me 1 2 3 4 5! Wow! I love ALGOCOM!");
+    int[] D = new int[]{1,2,4,3};
+    countSwaps(4, D);
   }
 }
