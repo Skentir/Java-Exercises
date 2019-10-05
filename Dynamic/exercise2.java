@@ -26,6 +26,30 @@ public class exercise2
     }
 
     System.out.println(freq);
+    Set<Map.Entry<Character, Integer>> freqSet = freq.entrySet();
+    List<Map.Entry<Character, Integer>> freqList =
+      new ArrayList<Map.Entry<Character, Integer>>(freqSet);
+
+    Collections.sort(freqList,
+      new Comparator<Map.Entry<Character, Integer>>() {
+
+      @Override
+      public int compare(Entry<Character, Integer> es1,
+          Entry<Character, Integer> es2) {
+            if (es2.getValue() == es1.getValue())
+              return es1.getKey() - es2.getKey();
+            else
+              return es2.getValue() - es1.getValue();
+          }
+      });
+
+      freq.clear();
+
+      // 5. iterating list and storing in LinkedHahsMap
+      for(Map.Entry<Character, Integer> map : freqList){
+         freq.put(map.getKey(), map.getValue());
+      }
+      System.out.println(freq);
   }
 
   public static void countSwaps(int length, int[] carriageNumbers)
@@ -44,12 +68,10 @@ public class exercise2
       System.out.print(k+",");
     System.out.println();
 
-    for (i=1; i <= length; i++)
+    for (i=0; i < length; i++)
     {
-  //    System.out.println(i + "," + length);
-      if (carriageNumbers[i-1] != i)
+      if (carriageNumbers[i] != copy[i])
       {
-  //      System.out.println("num " + carriageNumbers[i-1] + " , " + i);
          temp = carriageNumbers[i-1];
          carriageNumbers[i-1] = i;
          carriageNumbers[carriageNumbers[i-1]-1] = temp;
@@ -65,6 +87,7 @@ public class exercise2
   {
     analyze("Count me 1 2 3 4 5! Wow! I love ALGOCOM!");
     int[] D = new int[]{1,2,4,3};
+
     countSwaps(4, D);
   }
 }
