@@ -94,14 +94,14 @@ public class exercise2
   {
     if(k > N)
     {
-		    System.out.println("Invalid input");
-		    return;
-	  }
-	    // init combination index array
-	  int pointers[] = new int[k];
+	System.out.println("Invalid input");
+	return;
+    }
+ // init combination index array
+    int pointers[] = new int[k];
     int[] elements = new int[N];
     int j;
-	  int r = 0; // index for combination array
+    int r = 0; // index for combination array
     int i = 1; // index for elements array
 
     for (j=1; j <= N; j++)
