@@ -29,10 +29,12 @@ public class exercise2
       new ArrayList<Map.Entry<Character, Integer>>(freqSet);
 
     Collections.sort(freqList,
-      new Comparator<Map.Entry<Character, Integer>>() {
+      new Comparator<Map.Entry<Character, Integer>>()
+      {
       @Override
       public int compare(Entry<Character, Integer> key1,
-          Entry<Character, Integer> key2) {
+          Entry<Character, Integer> key2)
+          {
             if (key1.getValue() == key2.getValue())
               return key1.getKey() - key2.getKey();
             else
@@ -42,11 +44,13 @@ public class exercise2
 
       freq.clear();
 
-      for(Map.Entry<Character, Integer> newFreq : freqList){
+      for(Map.Entry<Character, Integer> newFreq : freqList)
+      {
          freq.put(newFreq.getKey(), newFreq.getValue());
       }
 
-      for(Map.Entry<Character, Integer> newFreq : freqList){
+      for(Map.Entry<Character, Integer> newFreq : freqList)
+      {
         System.out.println(newFreq.getKey()+ " " + newFreq.getValue());
       }
   }
@@ -88,49 +92,49 @@ public class exercise2
 
   public static void printCombination (int N, int k)
   {
-int j;
-    if(k > N){
-		    System.out.println("Invalid input, K > N");
-		return;
-	   }
+    if(k > N)
+    {
+		    System.out.println("Invalid input");
+		    return;
+	  }
+	    // init combination index array
+	  int pointers[] = new int[k];
+    int[] elements = new int[N];
+    int j;
+	  int r = 0; // index for combination array
+    int i = 1; // index for elements array
 
-  int[] elements = new int[N];
-  for (j=1; j <= N; j++)
-    elements[j-1] = j;
+    for (j=1; j <= N; j++)
+      elements[j-1] = j;
 
-	// init combination index array
-	int pointers[] = new int[k];
-
-
-	int r = 0; // index for combination array
-	int i = 1; // index for elements array
-
-	while(r >= 0){
-
-		// forward step if i < (N + (r-K))
-		if(i-1 <= (N + (r - k))){
-			pointers[r] = i;
-
-			// if combination array is full print and increment i;
-			if(r == k-1){
-				//print(pointers, elements);
-        for (j=0; j < k; j++)
-          System.out.print(pointers[j]);
-        System.out.println();
-				i++;
-			}
-			else{
-				// if combination is not full yet, select next element
-				i = pointers[r]+1;
-				r++;
-			}
-		}
+	   while(r >= 0)
+     {
+		     // forward step if i < (N + (r-K))
+		     if(i-1 <= (N + (r - k)))
+         {
+		       pointers[r] = i;
+			     // if combination array is full print and increment i;
+			     if(r == k-1)
+           {
+             for (j=0; j < k; j++)
+                System.out.print(pointers[j]);
+             System.out.println();
+				     i++;
+			     }
+			     else
+           {
+				    // if combination is not full yet, select next element
+				    i = pointers[r]+1;
+				    r++;
+			     }
+		     }
 		// backward step
-		else{
-			r--;
-			if(r >= 0)
-				i = pointers[r]+1;
-		}
+		    else
+        {
+			     r--;
+			     if(r >= 0)
+				       i = pointers[r]+1;
+		    }
 	 }
   }
 
