@@ -107,35 +107,35 @@ public class exercise2
     for (j=1; j <= N; j++)
       elements[j-1] = j;
 
-	   while(r >= 0)
-     {
-		     // forward step if i < (N + (r-K))
-		     if(i-1 <= (N + (r - k)))
-         {
-		       pointers[r] = i;
-			     // if combination array is full print and increment i;
-			     if(r == k-1)
-           {
-             for (j=0; j < k; j++)
-                System.out.print(pointers[j]);
-             System.out.println();
-				     i++;
-			     }
-			     else
-           {
-				    // if combination is not full yet, select next element
-				    i = pointers[r]+1;
-				    r++;
-			     }
-		     }
-		// backward step
-		    else
+    while(r >= 0)
+    {
+	// forward step if i < (N + (r-K))
+	if(i-1 <= (N + (r - k)))
         {
-			     r--;
-			     if(r >= 0)
-				       i = pointers[r]+1;
-		    }
+	   pointers[r] = i;
+	 // if combination array is full print and increment i;
+	 if(r == k-1)
+         {
+            for (j=0; j < k; j++)
+                System.out.print(pointers[j]);
+            System.out.println();
+	    i++;
 	 }
+	 else
+         {
+	 // if combination is not full yet, select next element
+	    i = pointers[r]+1;
+	    r++;
+	  }
+	 }
+		// backward step
+	else
+        {
+	 r--;
+	 if(r >= 0)
+	    i = pointers[r]+1;
+	}
+     }
   }
 
   public static void main(String args[])
