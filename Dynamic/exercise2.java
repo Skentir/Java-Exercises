@@ -1,3 +1,4 @@
+/* SISON, DANIELLE KIRSTEN T. S16 ALGCM*/
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -23,7 +24,7 @@ public class exercise2
         freq.put(c, ctr);
       }
     }
-//    System.out.println(freq);
+
     Set<Map.Entry<Character, Integer>> freqSet = freq.entrySet();
     List<Map.Entry<Character, Integer>> freqList =
       new ArrayList<Map.Entry<Character, Integer>>(freqSet);
@@ -45,14 +46,10 @@ public class exercise2
       freq.clear();
 
       for(Map.Entry<Character, Integer> newFreq : freqList)
-      {
          freq.put(newFreq.getKey(), newFreq.getValue());
-      }
 
       for(Map.Entry<Character, Integer> newFreq : freqList)
-      {
         System.out.println(newFreq.getKey()+ " " + newFreq.getValue());
-      }
   }
 
   public static void countSwaps(int length, int[] carriageNumbers)
@@ -97,38 +94,36 @@ public class exercise2
 	System.out.println("Invalid input");
 	return;
     }
- // init combination index array
+
     int pointers[] = new int[k];
     int[] elements = new int[N];
     int j;
-    int r = 0; // index for combination array
-    int i = 1; // index for elements array
+    int r = 0;
+    int i = 1;
 
     for (j=1; j <= N; j++)
       elements[j-1] = j;
 
     while(r >= 0)
     {
-	// forward step if i < (N + (r-K))
+
 	if(i-1 <= (N + (r - k)))
         {
 	   pointers[r] = i;
-	 // if combination array is full print and increment i;
+
 	 if(r == k-1)
          {
             for (j=0; j < k; j++)
-                System.out.print(pointers[j]);
+                System.out.print(pointers[j] + " ");
             System.out.println();
 	    i++;
 	 }
 	 else
          {
-	 // if combination is not full yet, select next element
 	    i = pointers[r]+1;
 	    r++;
 	  }
 	 }
-		// backward step
 	else
         {
 	 r--;
@@ -136,19 +131,5 @@ public class exercise2
 	    i = pointers[r]+1;
 	}
      }
-  }
-
-  public static void main(String args[])
-  {
-    analyze("Count me 1 2 3 4 5! Wow! I love ALGOCOM!");
-    int[] D = new int[]{2,1};
-    countSwaps(2, D);
-    int[] A = new int[]{100,0,300,100,100};
-    checkHarvest(5,500,A);
-    int[] B = new int[]{1500,0,500,0,500};
-    checkHarvest(5,500,B);
-    int[] C = new int[]{1000,100,100,100,100};
-    checkHarvest(5,200,C);
-    printCombination(5,3);
   }
 }
