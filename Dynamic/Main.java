@@ -17,6 +17,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
+      /*
         Solution.skyline(makeBuildings(1, 3, 4, 2, 2, 6));
         System.out.println();
         Solution.skyline(makeBuildings(1, 4, 4, 8, 8, 12));
@@ -33,5 +34,11 @@ public class Main {
         System.out.println();
         Solution.skyline(makeBuildings(1, 10, 5, 5, 12, 8));
         System.out.println();
+        */
+        Solution.mergesort(new int[] { 7, 8, 9, 4, 3, 2, 1 });
+        System.out.println();
+        Solution.mergesort(new int[] { 9, 8, 7, 6, 2, 2, 0 });
+        System.out.println();
+        Solution.mergesort(new int[] { 5, 5, 5, 4, 4, 4, 3 });
     }
 }
