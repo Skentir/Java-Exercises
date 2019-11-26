@@ -63,51 +63,38 @@ public class Solution {
     int[] W = new int[num];
     int[] V = new int[num];
     int[][] mems1 = new int[num+1][goal+1];
-    int[][] mems2 = new int[num+1][goal+1];
 
     for (int i = 0; i < num; i++) {
       String[] L = input[i+1].split(" ");
       W[i] = Integer.parseInt(L[0]);
       V[i] = Integer.parseInt(L[1]);
     }
-    System.out.println("G " + goal + " N " + num);
-    System.out.println("Weight");
-    for (int i=0; i < num; i++)
-      System.out.print(W[i] + " ");
-    System.out.println("\nValues");
-    for (int i=0; i < num; i++)
-      System.out.print(V[i] + " ");
 
     for (int i = 0; i <= num; i++) {
       for (int j = 0; j <= goal; j++) {
-        if (i == 0 || j == 0) {
+        if (i == 0 || j == 0)
           mems1[i][j] = 0;
-        } else if (W[i-1] <= j) {
-            if (V[i-1] + mems1[i-1][j-W[i-1]] >  mems1[i-1][j]) {
+        else if (W[i-1] <= j) {
+            if (V[i-1] + mems1[i-1][j-W[i-1]] >  mems1[i-1][j])
               mems1[i][j] = V[i-1] + mems1[i-1][j-W[i-1]];
-    //        mems2[i][j] = V[i-1] + mems2[i-1][j-V[i-1]];
-            } else {
+            else
               mems1[i][j] = mems1[i-1][j];
-    //          mems2[i][j] = V[i-1];
-            }
-
-        } else {// don't add if the weight is negative or smol
-            mems1[i][j] = mems1[i-1][j];
-    //        mems2[i][j] = mems2[i-1][j];
         }
       }
     }
-    /*
-    System.out.println("Table");
-    for (int i=0; i < num; i++) {
-      for (int j = 0; j < goal; j++)
-        System.out.print(mems1[i][j] + " ");
-    }
-    */
-    System.out.println("\nV " + mems2[num][goal]);
-    System.out.println("W " + mems1[num][goal]);
-  }
 
+    int sum_val = mems1[num][goal];
+    int sum_weight = 0;
+    // backtrack
+    while (num != 0) {
+      if (mems1[num][goal] != mems1[num-1][goal]) {
+        sum_weight += W[num-1];
+        goal -= W[num-1];
+      }
+      num--;
+    }
+    System.out.println(sum_weight + " " + sum_val);
+}
   public static void main(String[] args) {
     String[] sample1 = new String[] {
       "3",
@@ -161,5 +148,19 @@ public class Solution {
       "16 2"
     };
     partyBudget(sample5);
+    String[] sample6 = new String[] {
+      "50 10",
+      "13 4",
+      "25 10",
+      "5 5",
+      "5 5",
+      "5 6",
+      "5 10",
+      "15 1",
+      "15 10",
+      "7 7",
+      "20 10"
+    };
+    partyBudget(sample6);
   }
 }
