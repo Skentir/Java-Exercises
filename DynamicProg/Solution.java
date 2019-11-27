@@ -70,16 +70,20 @@ public class Solution {
       V[i] = Integer.parseInt(L[1]);
     }
 
-    for (int i = 0; i <= num; i++) {
+    for (int w = 0; w  <= goal; w++)
+      mems1[0][w] = 0;
+
+    for (int i = 1; i <= num; i++) {
       for (int j = 0; j <= goal; j++) {
         if (i == 0 || j == 0)
           mems1[i][j] = 0;
-        else if (W[i-1] <= j) {
-            if (V[i-1] + mems1[i-1][j-W[i-1]] >  mems1[i-1][j])
-              mems1[i][j] = V[i-1] + mems1[i-1][j-W[i-1]];
-            else
-              mems1[i][j] = mems1[i-1][j];
-        }
+        else if (j >= W[i-1]) {
+          if (V[i-1] + mems1[i-1][j-W[i-1]] >  mems1[i-1][j])
+            mems1[i][j] = V[i-1] + mems1[i-1][j-W[i-1]];
+          else
+            mems1[i][j] = mems1[i-1][j];
+        } else
+            mems1[i][j] = mems1[i-1][j];
       }
     }
 
@@ -94,7 +98,50 @@ public class Solution {
       num--;
     }
     System.out.println(sum_weight + " " + sum_val);
-}
+  }
+
+	public static int[][] mems;
+
+  public static int solve(int start, int end, int[] a, int n) {
+    if (mems[start][end] != -1)
+          return mems[start][end];
+
+      int numPossible = 0;
+      for (int i = 0; i < n; i++) {
+          if (a[i] > start && a[i] < end)
+              numPossible++;
+      }
+      if (numPossible == 0)
+          return 0;
+
+      int price = 0;
+      int min = Integer.MAX_VALUE;
+      for (int i = 0; i < n; i++) {
+          if (a[i] <= start || a[i] >= end)
+              continue;
+          price = (end-start) + solve(start, a[i], a, n) + solve(a[i], end, a, n);
+          min = Math.min(min, price);
+      }
+
+      mems[start][end] = min;
+      return mems[start][end];
+	}
+
+  public static void cut(int l, int cuts, int[] places) {
+    while (l != 0) {
+    			mems = new int[l+2][l+2];
+
+          for (int i = 0; i < l+1; i++) {
+                for (int j = 0; j < l+1; j++)
+                    mems[i][j] = -1;
+            }
+
+    			int result = solve(0, l, places, cuts);
+    			System.out.println("The minimum cutting is " + result + ".");
+          break;
+    }
+  }
+
   public static void main(String[] args) {
     String[] sample1 = new String[] {
       "3",
@@ -162,5 +209,11 @@ public class Solution {
       "20 10"
     };
     partyBudget(sample6);
+    int[] p1 = new int[] {25,50,75};
+    cut(100,3,p1);
+    int[] p2 = new int[] {4,5,7,8};
+    cut(10,4,p2);
+    int[] p3 = new int[] {5,10,15,20,25};
+    cut(40,5,p3);
   }
 }
