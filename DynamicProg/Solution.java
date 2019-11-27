@@ -87,17 +87,17 @@ public class Solution {
       }
     }
 
-    int sum_val = mems1[num][goal];
-    int sum_weight = 0;
+    int sumVal = mems1[num][goal];
+    int sumWeight = 0;
     // backtrack
     while (num != 0) {
       if (mems1[num][goal] != mems1[num-1][goal]) {
-        sum_weight += W[num-1];
+        sumWeight += W[num-1];
         goal -= W[num-1];
       }
       num--;
     }
-    System.out.println(sum_weight + " " + sum_val);
+    System.out.println(sumWeight + " " + sumVal);
   }
 
   public static int[][] mems;
