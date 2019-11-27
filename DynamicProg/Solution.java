@@ -100,7 +100,7 @@ public class Solution {
     System.out.println(sum_weight + " " + sum_val);
   }
 
-	public static int[][] mems;
+  public static int[][] mems;
 
   public static int solve(int start, int end, int[] a, int n) {
     if (mems[start][end] != -1)
