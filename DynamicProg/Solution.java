@@ -104,41 +104,41 @@ public class Solution {
 
   public static int solve(int start, int end, int[] a, int n) {
     if (mems[start][end] != -1)
-          return mems[start][end];
+       return mems[start][end];
 
-      int numPossible = 0;
-      for (int i = 0; i < n; i++) {
-          if (a[i] > start && a[i] < end)
-              numPossible++;
-      }
-      if (numPossible == 0)
-          return 0;
+    int numPossible = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i] > start && a[i] < end)
+            numPossible++;
+    }
+    if (numPossible == 0)
+        return 0;
 
-      int price = 0;
-      int min = Integer.MAX_VALUE;
-      for (int i = 0; i < n; i++) {
-          if (a[i] <= start || a[i] >= end)
-              continue;
-          price = (end-start) + solve(start, a[i], a, n) + solve(a[i], end, a, n);
-          min = Math.min(min, price);
-      }
+    int price = 0;
+    int min = Integer.MAX_VALUE;
+    for (int i = 0; i < n; i++) {
+        if (a[i] <= start || a[i] >= end)
+            continue;
+        price = (end-start) + solve(start, a[i], a, n) + solve(a[i], end, a, n);
+        min = Math.min(min, price);
+    }
 
-      mems[start][end] = min;
-      return mems[start][end];
-	}
+    mems[start][end] = min;
+    return mems[start][end];
+  }
 
   public static void cut(int l, int cuts, int[] places) {
     while (l != 0) {
-    			mems = new int[l+2][l+2];
+    	mems = new int[l+2][l+2];
 
-          for (int i = 0; i < l+1; i++) {
-                for (int j = 0; j < l+1; j++)
-                    mems[i][j] = -1;
-            }
+        for (int i = 0; i < l+1; i++) {
+            for (int j = 0; j < l+1; j++)
+                mems[i][j] = -1;
+        }
 
-    			int result = solve(0, l, places, cuts);
-    			System.out.println("The minimum cutting is " + result + ".");
-          break;
+    	int result = solve(0, l, places, cuts);
+    	System.out.println("The minimum cutting is " + result + ".");
+        break;
     }
   }
 
